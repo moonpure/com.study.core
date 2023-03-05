@@ -106,7 +106,9 @@ public class QuickSort {
      * 优化的核心就是防止相等的元素进入大于或小于的区间
      * */
     public <E extends Comparable<E>> void sort3Ways(E arr[], int l, int r, Random random) {
-        if (l >= r) return;
+        if (l >= r) {
+            return;
+        }
 
         int index = random.nextInt(r - l + 1) + l;
         swap(arr, l, index);
@@ -158,6 +160,7 @@ public class QuickSort {
         array[high] = temp;
         return pointer;
     }
+
     /**
      * 处理枢纽值,三数取中
      *
@@ -165,31 +168,32 @@ public class QuickSort {
      * @param left
      * @param right
      */
-    private  <E extends Comparable<E>> void dealPivot(E[] arr, int left, int right) {
-        if(right-left+1<3)
-        {
+    private <E extends Comparable<E>> void dealPivot(E[] arr, int left, int right) {
+        if (right - left + 1 < 3) {
             return;
         }
         int mid = (left + right) / 2;
-        if (arr[left].compareTo(arr[mid])>0) {
+        if (arr[left].compareTo(arr[mid]) > 0) {
             swap(arr, left, mid);
         }
-        if (arr[left].compareTo(arr[right])>0) {
+        if (arr[left].compareTo(arr[right]) > 0) {
             swap(arr, left, right);
         }
-        if (arr[right].compareTo(arr[mid])<0) {
+        if (arr[right].compareTo(arr[mid]) < 0) {
             swap(arr, right, mid);
         }
         swap(arr, right - 1, mid);
     }
+
     public void quickSort(int[] array, int low, int high) {
-        if (low < high) {
-            // 获取划分子数组的位置
-            int position = partitionQuick(array, low, high);
-            // 左子数组递归调用
-            quickSort(array, low, position - 1);
-            // 右子数组递归调用
-            quickSort(array, position + 1, high);
+        if (low >= high) {
+            return;
         }
+        // 获取划分子数组的位置
+        int position = partitionQuick(array, low, high);
+        // 左子数组递归调用
+        quickSort(array, low, position - 1);
+        // 右子数组递归调用
+        quickSort(array, position + 1, high);
     }
 }

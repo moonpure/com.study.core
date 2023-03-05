@@ -1,6 +1,12 @@
 package com.study.core.sort;
 
-public class BasicSort {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class BasicSort implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -1661928303715867750L;
 
     //     1.获取原序列的最大位多少
 //      @param arrays

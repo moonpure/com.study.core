@@ -1,5 +1,7 @@
 package com.study.core.struct;
 
+import java.io.Serializable;
+
 /**
  * TODO
  *
@@ -25,7 +27,7 @@ package com.study.core.struct;
  * 内部插入接口方法定义:insert(RBNode node)
  * 修正插入导致红黑树失衡的方法定义：insertFixUp(RBNode node)
  */
-public class RedBlackTree<K extends Comparable<K>, V> {
+public class RedBlackTree<K extends Comparable<K>, V>  {
     private final boolean RED = true;
     private final boolean BLACK = false;
 
