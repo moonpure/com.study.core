@@ -3,6 +3,7 @@ package com.study.core.struct;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
 import java.util.SplittableRandom;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.locks.ReentrantLock;
@@ -10,15 +11,20 @@ import java.util.concurrent.locks.ReentrantLock;
 @Getter
 @Setter
 public class DoubleLink<T> {
-    //private static final long serialVersionUID = -387911632671998426L;
-    //LinkedBlockingDeque
-    //ReentrantReadWriteLock
-    //
-    //Phaser
-    //TreeMap
+
     private  int size;
     private Node<T> first;
     private Node<T> last;
+    private void examplecode()
+    {
+        //private static final long serialVersionUID = -387911632671998426L;
+        //LinkedBlockingDeque
+        //ReentrantReadWriteLock
+        //Phaser
+        //TreeMap
+        int[] a=new int[10];
+        Arrays.sort(a);
+    }
 
     final ReentrantLock lock = new ReentrantLock();
     private static final class Node<T> {
