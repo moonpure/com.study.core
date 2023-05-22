@@ -15,9 +15,10 @@ public class PerfectBinaryTree<T> {
     private PerfectBinaryTree<T> leftNode;
     private PerfectBinaryTree<T> rightNode;
     private PerfectBinaryTree<T> parentNode;
-    private Integer height;
-    private Queue<PerfectBinaryTree<T>> queue = new LinkedList<>();
-
+    /**
+     * 指定层创建
+     * @param layer
+     */
     public void createBinaryTree(Integer layer) {
 
         if (layer <= 1) {
@@ -39,6 +40,9 @@ public class PerfectBinaryTree<T> {
         }
     }
 
+    /**
+     * 按层赋值
+     */
     public void setValue() {
         if (this.parentNode == null) {
             Integer pdata = 1;
@@ -60,7 +64,7 @@ public class PerfectBinaryTree<T> {
         }
     }
 
-    //层序遍历
+    //递归遍历
     public void levelOrder() {
         if (this == null) {
             return;
@@ -80,7 +84,7 @@ public class PerfectBinaryTree<T> {
     }
 
     //层序遍历
-    public List<T> levelorderTraversal() {
+    public List<T> levelOrderTraversal() {
         List<T> list = new ArrayList<>();
         if (this == null) {
             return list;
@@ -103,7 +107,7 @@ public class PerfectBinaryTree<T> {
         return list;
     }
     //前序遍历非递归实现
-    public List<T> preorderTraversal() {
+    public List<T> preOrderTraversal() {
         List<T> list = new ArrayList<>();
         if(this==null)
         {
@@ -126,7 +130,7 @@ public class PerfectBinaryTree<T> {
 
     }
     //中序遍历非递归实现
-    public List<T> inorderTraversal() {
+    public List<T> inOrderTraversal() {
         List<T> list = new ArrayList<>();
         if(this==null)
         {
@@ -148,7 +152,7 @@ public class PerfectBinaryTree<T> {
         return list;
     }
     //后序遍历非递归实现
-    public List<T> postorderTraversal() {
+    public List<T> postOrderTraversalTemp() {
         List<T> list = new ArrayList<>();
         if(this==null)
         {
@@ -158,7 +162,6 @@ public class PerfectBinaryTree<T> {
         Deque<PerfectBinaryTree<T>> stack = new LinkedList<>();
         PerfectBinaryTree<T> prev = null;
         PerfectBinaryTree<T> current=this;
-
 
         while (!stack.isEmpty() || current != null) {
             while (current != null) {
@@ -179,6 +182,26 @@ public class PerfectBinaryTree<T> {
         }
         return list;
     }
+    //后序遍历非递归实现
+    public List<T> postOrderTraversal() {
+        List<T> list = new ArrayList<>();
+        if(this==null)
+        {
+            return list;
+        }
+        //非递归实现的本质是栈
+        Deque<PerfectBinaryTree<T>> stack = new LinkedList<>();
+        PerfectBinaryTree<T> current=this;
 
-
+        while (!stack.isEmpty() || current != null) {
+            while (current != null) {
+                list.add(current.dataNode);
+                stack.push(current);
+                current = current.rightNode;
+            }
+            current = stack.poll();
+            current = current.leftNode;
+        }
+        return list;
+    }
 }
