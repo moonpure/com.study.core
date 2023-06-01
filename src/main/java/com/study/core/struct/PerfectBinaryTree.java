@@ -151,7 +151,7 @@ public class PerfectBinaryTree<T> {
         }
         return list;
     }
-    //后序遍历非递归实现
+    //后序遍历非递归,没测试
     public List<T> postOrderTraversalTemp() {
         List<T> list = new ArrayList<>();
         if(this==null)

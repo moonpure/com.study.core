@@ -23,6 +23,6 @@ class PerfectBinaryTreeTest {
         PerfectBinaryTree<Integer> tree =new PerfectBinaryTree<>();
         tree.createBinaryTree(4);
         tree.setValue();
-        List<Integer> treeV=tree.postOrderTraversals();
+        List<Integer> treeV=tree.levelOrderTraversal();
     }
 }
