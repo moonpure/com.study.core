@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option java_package = "com.study.core.protobuf";
+option java_outer_classname = "MessagePerson";
+
+message MessagePersonEntity {
+  string access_token = 1;
+  string username = 2;
+}

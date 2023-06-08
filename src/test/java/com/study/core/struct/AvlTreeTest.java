@@ -8,7 +8,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AvlTreeTest {
+public class AvlTreeTest {
 
     @Test
     void insert() {
